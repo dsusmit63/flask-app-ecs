@@ -1,0 +1,36 @@
+# Stage 1
+
+# Base Image
+FROM python:3.9-alpine3.21 AS builder
+
+# Working Directory
+WORKDIR /app
+
+# Code
+COPY . .
+
+# Install Dependencies
+RUN pip install -r requirements.txt --target=/app/deps
+
+# Stage 2
+
+# Base Image
+FROM gcr.io/distroless/python3-debian12
+
+# Working Directory
+WORKDIR /app
+
+# Copy Code & Dependencies
+COPY --from=builder /app/deps /app/deps
+COPY --from=builder /app .
+
+# Environment Variable
+ENV PYTHONPATH="/app/deps"
+
+# Expose Port
+EXPOSE 80
+
+# Run & Serve the Application
+CMD ["run.py"]
+
+
