@@ -1,5 +1,5 @@
 # Base Image
-FROM python:3.9-alpine3.21
+FROM python:3.14-slim
 
 # Working Directory
 WORKDIR /app
