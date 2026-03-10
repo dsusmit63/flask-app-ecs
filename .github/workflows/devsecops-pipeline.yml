@@ -16,3 +16,7 @@ jobs:
     needs: [code-quality, secrets-scan, dependency-scan, docker-scan]
     uses: ./.github/workflows/build-and-push.yml
     secrets: inherit
+  scan-image:
+    needs: [build]
+    uses: ./.github/workflows/image-scan.yml
+    secrets: inherit
