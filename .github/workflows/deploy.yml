@@ -9,7 +9,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
       - name: ssh to prod server and create directory
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_SSH_HOST }}
           username: ${{ secrets.EC2_SSH_USER }}
@@ -26,7 +26,7 @@ jobs:
           source: docker-compose.yml
           target: ~/devops
       - name: SSH to prod server and deploy the app
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_SSH_HOST }}
           username: ${{ secrets.EC2_SSH_USER }}
