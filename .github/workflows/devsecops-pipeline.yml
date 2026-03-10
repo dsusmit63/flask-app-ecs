@@ -20,3 +20,7 @@ jobs:
     needs: [build]
     uses: ./.github/workflows/image-scan.yml
     secrets: inherit
+  deploy:
+    needs: [scan-image]
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
