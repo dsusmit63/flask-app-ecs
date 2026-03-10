@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Install Dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the Port
 EXPOSE 80
