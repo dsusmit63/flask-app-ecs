@@ -1,0 +1,5 @@
+services:
+  webapp:
+    imgae: ${{ DOCKERHUB_USER }}/flask-app-ecs:latest
+    ports:
+      - "80:80"
