@@ -1,5 +1,5 @@
 services:
   webapp:
-    image: $${{ vars.DOCKERHUB_USER }}/flask-app-ecs:latest
+    image: $DOCKERHUB_USER/flask-app-ecs:latest
     ports:
       - "80:80"
