@@ -33,6 +33,7 @@ jobs:
           script: |
             echo "Deployment..."
             export DOCKERHUB_USER=${{ vars.DOCKERHUB_USER }}
+            echo "$DOCKERHUB_USER"
             echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username ${{ vars.DOCKERHUB_USER }} --password-stdin
             cd ~/devops && docker compose down && docker compose up -d --build --force-recreate --pull always
  
